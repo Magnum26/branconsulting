@@ -1,0 +1,114 @@
+@charset 'utf-8';
+
+html {
+    background: mix(black, $cherry, 20%);
+}
+
+body {
+    background: mix(white, $sand, 90%);
+    font-family: $body-font;
+    color: $darkgrey;
+    @include fontsmooth;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: $heading-font;
+    @include font-weight(bold);
+    color: $brown;
+}
+
+a {
+    color: $link;
+    @include text-decoration(none);
+
+    &:hover {
+        color: $hover;
+    }
+}
+
+header {
+    background: $sand;
+    padding-bottom: 10px;
+
+    nav {
+        margin-top: 10px;
+    }
+
+    .logos {
+        margin-top: 5px;
+    }
+}
+
+.nav > li > a:hover, .nav > li > a:focus {
+    background-color: mix(white, $cherry, 70%);
+}
+.nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
+    background-color: mix(black, $cherry, 20%);
+}
+.logo {
+    h1 {
+        margin: 10px 0 0;
+        line-height: 1;
+    }
+
+    h3 {
+        margin-top: 0;
+    }
+
+    img {
+        float: left;
+        margin: 10px 10px 0 0;
+    }
+
+    a {
+        &:hover {
+            @include text-decoration(none);
+        }
+    }
+}
+
+section {
+    h4 {
+        color: $sand;
+    }
+
+    span {
+        color: $sand;
+    }
+}
+
+.contactbar {
+    background: $cherry;
+    color: $sand;
+    margin-top: 10px;
+    padding-bottom: 10px;
+}
+
+footer {
+    background: mix(black, $cherry, 20%);
+
+    p {
+        color: $sand;
+        padding-top: 10px;
+    }
+
+    a {
+        color: $sand;
+
+        &:hover {
+            color: white;
+        }
+    }
+}
+
+#success {
+    display:none;
+}
+.push-down {
+    margin-top:2px;
+}

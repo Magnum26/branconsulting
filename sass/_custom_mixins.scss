@@ -1,0 +1,83 @@
+// web kits (use: @include kits(font-smoothing, $type);)
+@mixin prefixer($property, $value) {
+    -webkit-#{$property}: #{$value};
+    -moz-#{$property}: #{$value};
+    -ms-#{$property}: #{$value};
+    -o-#{$property}: #{$value};
+    // Include the OSX Moz fix if font-smoothing else this is ignored
+    @if $property==font-smoothing {
+        -moz-osx-#{$property}: grayscale;
+    }
+}
+
+// Font smoothing (use: @include fontsmooth) defaults to antialised
+@mixin fontsmooth($type: antialiased) {
+    @include prefixer(font-smoothing, $type);
+    font-smoothing: $type;
+}
+
+// border styles (use: @include border(1px, $white);) default solid line 
+@mixin border($width, $color, $style: solid) {
+    border: {
+        width: $width;
+        color: $color;
+        style: $style;
+    }
+}
+
+// Border-radius 
+@mixin border-radius($radius) {
+    @include prefixer(border-radius, $radius);
+    border-radius: $radius;
+}
+
+// Font weight 
+@mixin font-weight($weight) {
+    $weights: ( thin: 300, normal: 400, bold: 700, extra: 800);
+    $thick: $weight;
+    @if map-has-key($weights, $weight) {
+        $thick: map-get($weights, $weight);
+    }
+    font-weight: $thick;
+}
+
+// text-decoration 
+@mixin text-decoration($type) {
+    $types: ( none: none, line: line-through, over: overline, under: underline, default: initial, inherit: inherit);
+    $dec: $type;
+    @if map-has-key($types, $type) {
+        $dec: map-get($types, $type);
+    }
+    text-decoration: $dec;
+}
+
+// Text shadow shorthand rgba color (use: @include text-shadow(1px, 1px, null, rgba($white, .4));)
+@mixin text-shadow($x, $y, $blur, $rgba) {
+    text-shadow: $x $y $blur $rgba;
+}
+
+//box-shadow shorthand rgba color (use: See above)
+@mixin box-shadow($x, $y, $blur, $rgba) {
+    box-shadow: $x $y $blur $rgba;
+}
+
+// Google Web font mixin (use: @include webfont(Open Sans); ) add more using ,
+@mixin webfont($font-face...) {
+    $url: "https://fonts.googleapis.com/css?family=";
+    $font: 0;
+    @each $font-name in $font-face {
+        $font: $font + 1;
+        $font-word: 0;
+        @each $word in $font-name {
+            $font-word: $font-word + 1;
+            $url: $url + $word;
+            @if $font-word < length($font-name) {
+                $url: $url + "+";
+            }
+        }
+        @if $font < length($font-face) {
+            $url: $url + "|";
+        }
+    }
+    @import url(#{$url});
+}

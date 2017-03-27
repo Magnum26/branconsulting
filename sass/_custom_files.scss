@@ -1,0 +1,6 @@
+// Font Awesome
+@import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css);
+@import url(http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.0/css/bootstrapValidator.min.css);
+
+// Google fonts - specify only the name of the font followed by a comma, import is handled via a mixin
+@include webfont(Open Sans, Muli);
