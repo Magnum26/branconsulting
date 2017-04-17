@@ -1,9 +1,7 @@
 @charset 'utf-8';
-
 html {
-    background: mix(black, $cherry, 20%);
+    background: $sand;
 }
-
 body {
     background: mix(white, $sand, 90%);
     font-family: $body-font;
@@ -33,10 +31,11 @@ a {
 
 header {
     background: $sand;
-    padding-bottom: 10px;
+    padding-top: 10px;
+    margin-bottom: 10px;
 
     nav {
-        margin-top: 10px;
+        margin: 10px 0 0;
     }
 
     .logos {
@@ -44,12 +43,6 @@ header {
     }
 }
 
-.nav > li > a:hover, .nav > li > a:focus {
-    background-color: mix(white, $cherry, 70%);
-}
-.nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
-    background-color: mix(black, $cherry, 20%);
-}
 .logo {
     h1 {
         margin: 10px 0 0;
@@ -86,19 +79,20 @@ section {
     background: $cherry;
     color: $sand;
     margin-top: 10px;
-    padding-bottom: 10px;
+    h4 {
+        font-weight: normal;
+    }
 }
 
 footer {
-    background: mix(black, $cherry, 20%);
-
+    background: $sand;
     p {
-        color: $sand;
+        color: $cherry;
         padding-top: 10px;
     }
 
     a {
-        color: $sand;
+        color: $cherry;
 
         &:hover {
             color: white;
@@ -107,8 +101,105 @@ footer {
 }
 
 #success {
-    display:none;
+    display: none;
 }
+
 .push-down {
-    margin-top:2px;
+    margin-top: 2px;
+}
+
+.navbar-default {
+    background-color: $cherry;
+    border-color: mix(white, $cherry, 25%);
+
+    .navbar-brand {
+        color: $colDefault;
+
+        &:focus,
+        &:hover {
+            color: $colHighlight;
+        }
+    }
+
+    .navbar-text {
+        color: $colDefault;
+    }
+
+    .navbar-nav {
+        > li {
+            > a {
+                color: $colDefault;
+
+                &:focus,
+                &:hover {
+                    color: $colHighlight;
+                }
+            }
+        }
+
+        > .active {
+             > a:focus,
+             > a:hover,
+            > a {
+                color: $colHighlight;
+                background-color: mix(white, $cherry, 25%);
+            }
+        }
+
+        > .open {
+             > a:focus,
+             > a:hover,
+            > a {
+                color: $colHighlight;
+                background-color: mix(white, $cherry, 25%);
+            }
+        }
+    }
+
+    .navbar-toggle {
+        border-color: mix(white, $cherry, 25%);
+
+        &:focus,
+        &:hover {
+            background-color: mix(white, $cherry, 25%);
+        }
+
+        .icon-bar {
+            background-color: $colDefault;
+        }
+    }
+
+    .navbar-collapse,
+    .navbar-form {
+        border-color: $colDefault;
+    }
+
+    .navbar-link {
+        color: $colDefault;
+
+        &:hover {
+            color: $colHighlight;
+        }
+    }
+}
+@media (max-width: 767px) {
+    .navbar-default .navbar-nav .open .dropdown-menu {
+        > li > a {
+            color: $colDefault;
+
+            &:focus,
+            &:hover {
+                color: $colHighlight;
+            }
+        }
+
+        > .active {
+             > a:focus,
+             > a:hover,
+            > a {
+                color: $colHighlight;
+                background-color: mix(white, $cherry, 25%);
+            }
+        }
+    }
 }

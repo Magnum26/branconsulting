@@ -1,5 +1,5 @@
 <?php
-require_once('include/phpmailer/class.phpmailer.php');
+require 'include/phpmailer/class.phpmailer.php';
 $mail = new PHPMailer();
 $mail->SMTPDebug = 0; //verbode debug
 $mail->IsSMTP();
@@ -83,36 +83,42 @@ if( isset( $_POST['contactformsubmit'] ) AND $_POST['contactformsubmit'] == 'sub
     <link href="stylesheets/styles.css" rel="stylesheet">
     </head>
         <body>
-            <header>
+          <header>
                 <div class="container">
                     <div class="row">
                         <div class="col-md-1 col-sm-2">
-                            <img src="images/raven.png" alt="raven" />
+                            <img src="images/raven.png" alt="raven" class="push-down" />
                         </div>
                         <div class="col-md-8 logo col-sm-7">
                             <a href="index.html">
                                 <h1>Bran Consulting Ltd</h1>
-                                <h3>M &amp; E Building Services</h3>
+                                <h3>Electrical Building Services</h3>
                             </a>
                         </div>
                         <div class="col-md-3 col-sm-3">
-                        <img src="images/logos.gif" alt="Accreditation logos" class="img-rounded logos img-responsive" />
+                            <img src="images/logos.gif" alt="Accreditation logos" class="img-rounded logos img-responsive" />
                         </div>
                     </div>
                 </div>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <nav>
-                                <ul class="nav nav-pills nav-justified">
-                                    <li role="presentation"><a href="index.html">Home</a></li>
-                                    <li role="presentation"><a href="about.html">About</a></li>
-                                    <li role="presentation" class="active"><a href="#">Contact</a></li>
-                                </ul>
-                            </nav>
+                <nav class="navbar navbar-default brand">
+                    <div class="container">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                          <span class="sr-only">Toggle navigation</span>
+                          <span class="icon-bar"></span>
+                          <span class="icon-bar"></span>
+                          <span class="icon-bar"></span>
+                          </button>
+                        </div>
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            <ul class="nav navbar-nav">
+                                <li><a href="index.html">Home</a></li>
+                                <li><a href="about.html">About </a></li>
+                                <li class="active"><a href="contact.php">Contact Us <span class="sr-only">(current)</span></a></li>
+                            </ul>
                         </div>
                     </div>
-                </div>
+                </nav>
             </header>
             <div class="container">
                 <div class="row">
@@ -173,8 +179,7 @@ if( isset( $_POST['contactformsubmit'] ) AND $_POST['contactformsubmit'] == 'sub
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12 text-center center-block">
-                            <h4>Call us today on <span>07789 408 120</span> or Email us at <span>info@branconsulting.co.uk</span></h4>
-                            <a href="contact_us.html" class="btn btn-default">Contact Us</a>
+                            <h4>Call us today on <span>07789 408 120</span> or Email us at <span>info@branconsulting.co.uk</span>&nbsp;&nbsp;<a href="contact.php" class="btn btn-default">Contact Us</a></h4>
                         </div>
                     </div>
                 </div>
